@@ -1,0 +1,1826 @@
+Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        band = 1
+
+        jugador = 1
+        jugar = 1
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Do While jugar < 10
+            If jugador = 1 Then
+                Call transferecia(matriz_a, matriz_b)
+
+                jugar = 1
+                Exit Do
+            End If
+
+        Loop
+
+        Do While band < 20 Or band1 < 20
+
+            If band = 1 Then
+
+                Call tiro1(TextBox3, TextBox60, matrizaux1, matrizaux2)
+
+                band = band + 1
+
+                Exit Do
+            End If
+
+            If band = 2 Then
+                Call tiro2(TextBox3, TextBox60, matrizaux1, matrizaux2)
+
+                band = band + 1
+
+                If matriz_auxA(2) = 10 Then
+
+                    band = band + 1
+
+                End If
+                Exit Do
+            End If
+
+            If band = 3 Then
+                Call tiro3(TextBox3, TextBox6, TextBox57, TextBox60, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+
+            End If
+
+            If band = 4 Then
+                Call tiro4(TextBox3, TextBox6, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(4) = 10 Then
+                    band = band + 1
+                End If
+
+                Exit Do
+            End If
+
+            If band = 5 Then
+                Call tiro5(TextBox6, TextBox9, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 6 Then
+                Call tiro6(TextBox6, TextBox9, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(6) = 10 Then
+                    band = band + 1
+                End If
+
+                Exit Do
+            End If
+
+            If band = 7 Then
+                Call tiro7(TextBox9, TextBox12, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 8 Then
+                Call tiro8(TextBox9, TextBox12, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(8) = 10 Then
+                    band = band + 1
+                End If
+                Exit Do
+            End If
+
+            If band = 9 Then
+                Call tiro9(TextBox12, TextBox15, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 10 Then
+                Call tiro10(TextBox12, TextBox15, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(10) = 10 Then
+                    band = band + 1
+                End If
+                Exit Do
+            End If
+
+            If band = 11 Then
+                Call tiro11(TextBox15, TextBox18, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 12 Then
+                Call tiro12(TextBox15, TextBox18, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(12) = 10 Then
+                    band = band + 1
+                End If
+                Exit Do
+            End If
+
+            If band = 13 Then
+                Call tiro13(TextBox18, TextBox21, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 14 Then
+                Call tiro14(TextBox18, TextBox21, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(14) = 10 Then
+                    band = band + 1
+                End If
+                Exit Do
+            End If
+
+            If band = 15 Then
+                Call tiro15(TextBox21, TextBox24, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 16 Then
+                Call tiro16(TextBox21, TextBox24, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(16) = 10 Then
+                    band = band + 1
+                End If
+                Exit Do
+            End If
+
+            If band = 17 Then
+                Call tiro17(TextBox24, TextBox27, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 18 Then
+                Call tiro18(TextBox24, TextBox27, matrizaux1, matrizaux2)
+
+                band = band + 1
+                Exit Do
+            End If
+
+            If band = 19 Then
+                Call tiro19(TextBox25, TextBox27, TextBox31, matrizaux1, matrizaux2)
+
+                band = band + 1
+                If matriz_a(18) + matriz_a(19) < 10 Then
+                    band = band + 1
+                End If
+
+                Exit Do
+            End If
+
+            If band = 20 Then
+                Call tiro20(Label3, TextBox31, matrizaux1, matrizaux2)
+                band = band + 1
+
+                Exit Do
+            End If
+
+            Exit Do
+
+        Loop
+
+    End Sub
+
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        matriz_a(0) = TextBox1.Text
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        matriz_a(1) = TextBox2.Text
+    End Sub
+
+    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
+        matriz_a(2) = TextBox4.Text
+    End Sub
+
+    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
+        matriz_a(3) = TextBox5.Text
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+        matriz_b(0) = TextBox3.Text
+
+    End Sub
+
+    Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
+        matriz_b(1) = TextBox6.Text
+    End Sub
+
+    Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs) Handles TextBox7.TextChanged
+        matriz_a(4) = TextBox7.Text
+    End Sub
+
+    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
+        matriz_a(5) = TextBox8.Text
+    End Sub
+
+    Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
+        matriz_b(2) = TextBox9.Text
+    End Sub
+
+    Private Sub TextBox10_TextChanged(sender As Object, e As EventArgs) Handles TextBox10.TextChanged
+        matriz_a(6) = TextBox10.Text
+    End Sub
+
+    Private Sub TextBox12_TextChanged(sender As Object, e As EventArgs) Handles TextBox12.TextChanged
+        matriz_b(3) = TextBox12.Text
+    End Sub
+
+    Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles TextBox15.TextChanged
+        matriz_b(4) = TextBox15.Text
+    End Sub
+
+    Private Sub TextBox18_TextChanged(sender As Object, e As EventArgs) Handles TextBox18.TextChanged
+        matriz_b(5) = TextBox18.Text
+    End Sub
+
+    Private Sub TextBox21_TextChanged(sender As Object, e As EventArgs) Handles TextBox21.TextChanged
+        matriz_b(6) = TextBox21.Text
+    End Sub
+
+    Private Sub TextBox24_TextChanged(sender As Object, e As EventArgs) Handles TextBox24.TextChanged
+        matriz_b(7) = TextBox24.Text
+    End Sub
+
+    Private Sub TextBox27_TextChanged(sender As Object, e As EventArgs) Handles TextBox27.TextChanged
+        matriz_b(8) = TextBox27.Text
+    End Sub
+
+    Private Sub TextBox31_TextChanged(sender As Object, e As EventArgs) Handles TextBox31.TextChanged
+        matriz_b(9) = TextBox31.Text
+    End Sub
+
+    Private Sub TextBox13_TextChanged(sender As Object, e As EventArgs) Handles TextBox13.TextChanged
+        matriz_a(8) = TextBox13.Text
+    End Sub
+
+    Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
+        matriz_a(7) = TextBox11.Text
+    End Sub
+
+    Private Sub TextBox14_TextChanged(sender As Object, e As EventArgs) Handles TextBox14.TextChanged
+        matriz_a(9) = TextBox14.Text
+    End Sub
+
+    Private Sub TextBox16_TextChanged(sender As Object, e As EventArgs) Handles TextBox16.TextChanged
+        matriz_a(10) = TextBox16.Text
+    End Sub
+
+    Private Sub TextBox17_TextChanged(sender As Object, e As EventArgs) Handles TextBox17.TextChanged
+        matriz_a(11) = TextBox17.Text
+    End Sub
+
+    Private Sub TextBox19_TextChanged(sender As Object, e As EventArgs) Handles TextBox19.TextChanged
+        matriz_a(12) = TextBox19.Text
+    End Sub
+
+    Private Sub TextBox20_TextChanged(sender As Object, e As EventArgs) Handles TextBox20.TextChanged
+        matriz_a(13) = TextBox20.Text
+    End Sub
+
+    Private Sub TextBox22_TextChanged(sender As Object, e As EventArgs) Handles TextBox22.TextChanged
+        matriz_a(14) = TextBox22.Text
+    End Sub
+
+    Private Sub TextBox23_TextChanged(sender As Object, e As EventArgs) Handles TextBox23.TextChanged
+        matriz_a(15) = TextBox23.Text
+    End Sub
+
+    Private Sub TextBox25_TextChanged(sender As Object, e As EventArgs) Handles TextBox25.TextChanged
+        matriz_a(16) = TextBox25.Text
+    End Sub
+
+    Private Sub TextBox26_TextChanged(sender As Object, e As EventArgs) Handles TextBox26.TextChanged
+        matriz_a(17) = TextBox26.Text
+    End Sub
+
+    Private Sub TextBox28_TextChanged(sender As Object, e As EventArgs) Handles TextBox28.TextChanged
+        matriz_a(18) = TextBox28.Text
+    End Sub
+
+    Private Sub TextBox29_TextChanged(sender As Object, e As EventArgs) Handles TextBox29.TextChanged
+        matriz_a(19) = TextBox29.Text
+    End Sub
+
+    Private Sub TextBox30_TextChanged(sender As Object, e As EventArgs) Handles TextBox30.TextChanged
+        matriz_a(20) = TextBox30.Text
+    End Sub
+
+    Private Sub TextBox62_TextChanged(sender As Object, e As EventArgs) Handles TextBox62.TextChanged
+        matriz_c(0) = TextBox62.Text
+    End Sub
+
+    Private Sub TextBox61_TextChanged(sender As Object, e As EventArgs) Handles TextBox61.TextChanged
+        matriz_c(1) = TextBox61.Text
+    End Sub
+
+    Private Sub TextBox59_TextChanged(sender As Object, e As EventArgs) Handles TextBox59.TextChanged
+        matriz_c(2) = TextBox59.Text
+    End Sub
+
+    Private Sub TextBox58_TextChanged(sender As Object, e As EventArgs) Handles TextBox58.TextChanged
+        matriz_c(3) = TextBox58.Text
+    End Sub
+
+    Private Sub TextBox56_TextChanged(sender As Object, e As EventArgs) Handles TextBox56.TextChanged
+        matriz_c(4) = TextBox56.Text
+    End Sub
+
+    Private Sub TextBox55_TextChanged(sender As Object, e As EventArgs) Handles TextBox55.TextChanged
+        matriz_c(5) = TextBox55.Text
+    End Sub
+
+    Private Sub TextBox53_TextChanged(sender As Object, e As EventArgs) Handles TextBox53.TextChanged
+        matriz_c(6) = TextBox53.Text
+    End Sub
+
+    Private Sub TextBox52_TextChanged(sender As Object, e As EventArgs) Handles TextBox52.TextChanged
+        matriz_c(7) = TextBox52.Text
+    End Sub
+
+    Private Sub TextBox50_TextChanged(sender As Object, e As EventArgs) Handles TextBox50.TextChanged
+        matriz_c(8) = TextBox50.Text
+    End Sub
+
+    Private Sub TextBox49_TextChanged(sender As Object, e As EventArgs) Handles TextBox49.TextChanged
+        matriz_c(9) = TextBox49.Text
+    End Sub
+
+    Private Sub TextBox47_TextChanged(sender As Object, e As EventArgs) Handles TextBox47.TextChanged
+        matriz_c(10) = TextBox47.Text
+
+    End Sub
+
+    Private Sub TextBox46_TextChanged(sender As Object, e As EventArgs) Handles TextBox46.TextChanged
+        matriz_c(11) = TextBox46.Text
+
+    End Sub
+
+    Private Sub TextBox44_TextChanged(sender As Object, e As EventArgs) Handles TextBox44.TextChanged
+        matriz_c(12) = TextBox44.Text
+
+    End Sub
+
+    Private Sub TextBox43_TextChanged(sender As Object, e As EventArgs) Handles TextBox43.TextChanged
+        matriz_c(13) = TextBox43.Text
+
+    End Sub
+
+    Private Sub TextBox41_TextChanged(sender As Object, e As EventArgs) Handles TextBox41.TextChanged
+        matriz_c(14) = TextBox41.Text
+
+    End Sub
+
+    Private Sub TextBox40_TextChanged(sender As Object, e As EventArgs) Handles TextBox40.TextChanged
+        matriz_c(15) = TextBox40.Text
+
+    End Sub
+
+    Private Sub TextBox38_TextChanged(sender As Object, e As EventArgs) Handles TextBox38.TextChanged
+        matriz_c(16) = TextBox38.Text
+    End Sub
+
+    Private Sub TextBox37_TextChanged(sender As Object, e As EventArgs) Handles TextBox37.TextChanged
+        matriz_c(17) = TextBox37.Text
+    End Sub
+
+    Private Sub TextBox35_TextChanged(sender As Object, e As EventArgs) Handles TextBox35.TextChanged
+        matriz_c(18) = TextBox35.Text
+    End Sub
+
+    Private Sub TextBox34_TextChanged(sender As Object, e As EventArgs) Handles TextBox34.TextChanged
+        matriz_c(19) = TextBox34.Text
+    End Sub
+
+    Private Sub TextBox33_TextChanged(sender As Object, e As EventArgs) Handles TextBox33.TextChanged
+        matriz_c(20) = TextBox33.Text
+    End Sub
+
+    Private Sub TextBox60_TextChanged(sender As Object, e As EventArgs) Handles TextBox60.TextChanged
+        matriz_b(0) = TextBox60.Text
+    End Sub
+
+    Private Sub TextBox57_TextChanged(sender As Object, e As EventArgs) Handles TextBox57.TextChanged
+        matriz_b(1) = TextBox57.Text
+    End Sub
+
+    Private Sub TextBox54_TextChanged(sender As Object, e As EventArgs) Handles TextBox54.TextChanged
+        matriz_b(2) = TextBox54.Text
+    End Sub
+
+    Private Sub TextBox51_TextChanged(sender As Object, e As EventArgs) Handles TextBox51.TextChanged
+        matriz_b(3) = TextBox51.Text
+    End Sub
+
+    Private Sub TextBox48_TextChanged(sender As Object, e As EventArgs) Handles TextBox48.TextChanged
+        matriz_b(4) = TextBox48.Text
+    End Sub
+
+    Private Sub TextBox45_TextChanged(sender As Object, e As EventArgs) Handles TextBox45.TextChanged
+        matriz_b(5) = TextBox45.Text
+    End Sub
+
+    Private Sub TextBox42_TextChanged(sender As Object, e As EventArgs) Handles TextBox42.TextChanged
+        matriz_b(6) = TextBox42.Text
+    End Sub
+
+    Private Sub TextBox39_TextChanged(sender As Object, e As EventArgs) Handles TextBox39.TextChanged
+        matriz_b(7) = TextBox39.Text
+    End Sub
+
+    Private Sub TextBox36_TextChanged(sender As Object, e As EventArgs) Handles TextBox36.TextChanged
+        matriz_b(8) = TextBox36.Text
+    End Sub
+
+    Private Sub TextBox32_TextChanged(sender As Object, e As EventArgs) Handles TextBox32.TextChanged
+        matriz_b(9) = TextBox32.Text
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
+        formulario = New Form2
+        formulario.Show()
+    End Sub
+End Class
+
+
+
+
+
+
+
+
+
+Module Module1
+    Public a As Byte
+    Public i As Byte
+    Public x As Byte
+    Public z As Byte
+    Public n1 As String
+    Public n2 As String
+    Public band As Byte
+    Public band1 As Byte
+    Public suma As Integer
+    Public suma1 As Integer
+    Public jugador As Byte
+    Public jugar As Byte
+    Public texto As TextBox
+
+
+    Public formulario As Form
+
+
+
+
+    Public matrizaux1(20) As Byte
+    Public matrizaux2(9) As Byte
+    Public matriz_auxA(20) As Byte
+    Public matriz_auxB(9) As Byte
+
+
+    Public matriz_a(20) As Byte
+    Public matriz_b(9) As Byte
+    Public matriz_c(20) As Byte
+    Public matriz_d(9) As Byte
+    Public Tiro(20) As Byte
+
+    Function flechas()
+
+    End Function
+
+
+    Function transferecia(matriz_auxA, matriz_auxB)
+        Dim q As Byte
+
+
+        For q = 0 To 20
+            matrizaux1(q) = matriz_auxA(q)
+        Next
+
+        For q = 0 To 9
+            matrizaux2(q) = matriz_auxB(q)
+
+        Next
+
+
+    End Function
+
+    Function tiro1(Textbox3, textbox60, matrizaux1, matrizaux2)
+
+
+        i = 0
+            suma = 0
+            a = 0
+
+
+
+        If matrizaux1(0) = 10 Then
+            suma = suma + matrizaux1(0)
+            matrizaux1(1) = 0
+            i = i + 3
+            a = 0
+
+        Else
+
+            If matrizaux1(0) + matrizaux1(1) = 10 Then
+
+                suma = suma + matrizaux1(0)
+
+                    i = i + 3
+                a = 1
+
+            Else
+
+                suma = suma + matrizaux1(0) + matrizaux1(1)
+                matrizaux2(0) = suma
+                Textbox3.text = matrizaux2(0)
+                i = i + 3
+                a = 2
+            End If
+        End If
+
+    End Function
+
+    Function tiro2(TextBox3, textbox60, matrizaux1, matrizaux2)
+
+        If matrizaux1(2) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(2)
+                matrizaux1(3) = 0
+                i = i + 2
+                a = 0
+
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(2)
+                    matrizaux2(0) = suma
+                    TextBox3.text = matrizaux2(0)
+                    suma = suma + matrizaux1(2)
+                    i = i + 2
+                    a = 0
+
+                Else
+                    suma = suma + matrizaux1(2)
+                    i = i + 2
+                    a = 0
+
+                End If
+            End If
+        End If
+
+        If matrizaux1(2) < 10 Then
+
+            If a = 0 Or a = 2 Then
+                suma = suma + matrizaux1(2)
+                i = i + 1
+            End If
+
+            If a = 1 Then
+                suma = suma + matrizaux1(2)
+                matrizaux2(0) = suma
+                TextBox3.text = matrizaux2(0)
+                i = i + 1
+            End If
+        End If
+
+
+    End Function
+
+
+    Function tiro3(TextBox3, TextBox6, textbox57, textbox60, matrizaux1, matrizaux2)
+
+
+        If matrizaux1(2) + matrizaux1(3) < 10 Then
+
+            If a = 0 Then
+
+                suma = suma + matrizaux1(3)
+                matrizaux2(0) = suma
+                TextBox3.text = matrizaux2(0)
+                suma = suma + matrizaux1(2) + matrizaux1(3)
+                matrizaux2(1) = suma
+                TextBox6.text = matrizaux2(1)
+                a = 2
+                i = i + 1
+            Else
+
+
+                If a = 2 Then
+                    suma = suma + matrizaux1(3)
+                    matrizaux2(1) = suma
+                    TextBox6.text = matrizaux2(1)
+                    a = 2
+                    i = i + 1
+                Else
+
+                    If a = 1 Then
+                        suma = suma + matrizaux1(2) + matrizaux1(3)
+                        matrizaux2(1) = suma
+                        TextBox6.text = matrizaux2(1)
+                        a = 2
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(2) + matrizaux1(3) = 10 Then
+            If a = 0 Then
+                a = 1
+                i = i + 1
+                suma = suma + matrizaux1(3)
+                matrizaux2(0) = suma
+                TextBox3.text = matrizaux2(0)
+                suma = suma + 10
+
+            Else
+                If a = 1 Then
+                    i = i + 1
+                    a = 1
+                    suma = suma + matrizaux1(3) + matrizaux1(2)
+
+                Else
+                    If a = 2 Then
+                        a = 1
+                        i = i + 1
+                        suma = suma + matrizaux1(3)
+                    End If
+                End If
+            End If
+        End If
+
+
+
+    End Function
+
+    Function tiro4(TextBox3, TextBox6, matrizaux1, matrizaux2)
+
+
+        If matrizaux1(4) = 10 Then
+
+            If a = 0 Then
+                If matriz_a(0) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(0) = suma
+                    TextBox3.text = matrizaux2(0)
+                    suma = suma + 20
+                    matrizaux1(5) = 0
+                Else
+                    suma = suma + matrizaux1(4)
+                    i = i + 2
+                    matrizaux1(5) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(4)
+                    i = i + 2
+                    matrizaux2(1) = suma
+                    TextBox6.text = matrizaux2(1)
+                    suma = suma + matrizaux1(4)
+                    matrizaux1(5) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(4)
+                        i = i + 2
+                        matrizaux1(5) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(4) < 10 Then
+            If a = 0 Then
+                If matrizaux1(0) = 10 Then
+                    suma = suma + matrizaux1(4)
+                    i = i + 1
+                    matrizaux2(0) = suma
+                    TextBox3.text = matrizaux2(0)
+                    suma = suma + matriz_a(2) + matrizaux1(4)
+                Else
+                    suma = suma + matrizaux1(4)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(4)
+                    i = i + 1
+                    matrizaux2(1) = suma
+                    TextBox6.text = matrizaux2(1)
+                    suma = suma + matrizaux1(4)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(4)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro5(TextBox6, TextBox9, matrizaux1, matrizaux2)
+
+        If matrizaux1(4) + matrizaux1(5) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(5)
+                matrizaux2(1) = suma
+                TextBox6.text = matrizaux2(1)
+                suma = suma + matrizaux1(4) + matrizaux1(5)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(5)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(5)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(4) + matrizaux1(5) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(5)
+                matrizaux2(1) = suma
+                TextBox6.text = matrizaux2(1)
+                suma = suma + matrizaux1(4) + matrizaux1(5)
+                matrizaux2(2) = suma
+                TextBox9.text = matrizaux2(2)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(5)
+                    matrizaux2(2) = suma
+                    TextBox9.text = matrizaux2(2)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+
+
+    End Function
+
+
+    Function tiro6(TextBox6, TextBox9, matrizaux1, matrizaux2)
+
+        If matrizaux1(6) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(2) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(1) = suma
+                    TextBox6.text = matrizaux2(1)
+                    suma = suma + 20
+                    matrizaux1(7) = 0
+                Else
+                    suma = suma + matrizaux1(6)
+                    i = i + 2
+                    matrizaux1(7) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(6)
+                    i = i + 2
+                    matrizaux2(2) = suma
+                    TextBox9.text = matrizaux2(2)
+                    suma = suma + matrizaux1(6)
+                    matrizaux1(7) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(6)
+                        i = i + 2
+                        matrizaux1(7) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(6) < 10 Then
+            If a = 0 Then
+                If matrizaux1(2) = 10 Then
+                    suma = suma + matrizaux1(6)
+                    i = i + 1
+                    matrizaux2(1) = suma
+                    TextBox6.text = matrizaux2(1)
+                    suma = suma + matrizaux1(4) + matrizaux1(6)
+                Else
+                    suma = suma + matrizaux1(6)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(6)
+                    i = i + 1
+                    matrizaux2(2) = suma
+                    TextBox9.text = matrizaux2(2)
+                    suma = suma + matrizaux1(6)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(6)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+
+
+    End Function
+
+    Function tiro7(TextBox9, TextBox12, matrizaux1, matrizaux2)
+
+        If matrizaux1(6) + matrizaux1(7) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(7)
+                matrizaux2(2) = suma
+                TextBox9.text = matrizaux2(2)
+                suma = suma + matrizaux1(6) + matrizaux1(7)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(7)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(7)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(6) + matrizaux1(7) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(7)
+                matrizaux2(2) = suma
+                TextBox9.text = matrizaux2(2)
+                suma = suma + matrizaux1(6) + matrizaux1(7)
+                matrizaux2(3) = suma
+                TextBox12.text = matrizaux2(3)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(7)
+                    matrizaux2(3) = suma
+                    TextBox12.text = matrizaux2(3)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+    End Function
+
+
+    Function tiro8(TextBox9, TextBox12, matrizaux1, matrizaux2)
+
+        If matrizaux1(8) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(4) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(2) = suma
+                    TextBox9.text = matrizaux2(2)
+                    suma = suma + 20
+                    matrizaux1(9) = 0
+                Else
+                    suma = suma + matrizaux1(8)
+                    i = i + 2
+                    matrizaux1(9) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(8)
+                    i = i + 2
+                    matrizaux2(3) = suma
+                    TextBox12.text = matrizaux2(3)
+                    suma = suma + matrizaux1(8)
+                    matrizaux1(9) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(8)
+                        i = i + 2
+                        matrizaux1(9) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(8) < 10 Then
+            If a = 0 Then
+                If matrizaux1(4) = 10 Then
+                    suma = suma + matrizaux1(8)
+                    i = i + 1
+                    matrizaux2(2) = suma
+                    TextBox9.text = matrizaux2(2)
+                    suma = suma + matrizaux1(6) + matrizaux1(8)
+                Else
+                    suma = suma + matrizaux1(8)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(8)
+                    i = i + 1
+                    matrizaux2(3) = suma
+                    TextBox12.text = matrizaux2(3)
+                    suma = suma + matrizaux1(8)
+                Else
+
+                    If a = 2 Then
+                        suma = suma + matrizaux1(8)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro9(TextBox12, TextBox15, matrizaux1, matrizaux2)
+
+        If matrizaux1(8) + matrizaux1(9) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(9)
+                matrizaux2(3) = suma
+                TextBox12.text = matrizaux2(3)
+                suma = suma + matrizaux1(8) + matrizaux1(9)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(9)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(9)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(8) + matrizaux1(9) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(9)
+                matrizaux2(3) = suma
+                TextBox12.text = matrizaux2(3)
+                suma = suma + matrizaux1(8) + matrizaux1(9)
+                matrizaux2(4) = suma
+                TextBox15.text = matrizaux2(4)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(9)
+                    matrizaux2(4) = suma
+                    TextBox15.text = matrizaux2(4)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro10(TextBox12, TextBox15, matrizaux1, matrizaux2)
+
+        If matrizaux1(10) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(6) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(3) = suma
+                    TextBox12.text = matrizaux2(3)
+                    suma = suma + 20
+                    matrizaux1(11) = 0
+                Else
+                    suma = suma + matrizaux1(10)
+                    i = i + 2
+                    matrizaux1(11) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(10)
+                    i = i + 2
+                    matrizaux2(4) = suma
+                    TextBox15.text = matrizaux2(4)
+                    suma = suma + matrizaux1(10)
+                    matrizaux1(11) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(10)
+                        i = i + 2
+                        matrizaux1(11) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(10) < 10 Then
+            If a = 0 Then
+                If matriz_a(6) = 10 Then
+                    suma = suma + matrizaux1(10)
+                    i = i + 1
+                    matrizaux2(3) = suma
+                    TextBox12.text = matrizaux2(3)
+                    suma = suma + matrizaux1(8) + matrizaux1(10)
+                Else
+                    suma = suma + matrizaux1(10)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(10)
+                    i = i + 1
+                    matrizaux2(4) = suma
+                    TextBox15.text = matrizaux2(4)
+                    suma = suma + matrizaux1(10)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(10)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+
+    End Function
+
+    Function tiro11(TextBox15, TextBox18, matrizaux1, matrizaux2)
+
+        If matrizaux1(10) + matrizaux1(11) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(11)
+                matrizaux2(4) = suma
+                TextBox15.text = matrizaux2(4)
+                suma = suma + matrizaux1(10) + matrizaux1(11)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(11)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(11)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(10) + matrizaux1(11) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(11)
+                matrizaux2(4) = suma
+                TextBox15.text = matrizaux2(4)
+                suma = suma + matrizaux1(10) + matrizaux1(11)
+                matrizaux2(5) = suma
+                TextBox18.text = matrizaux2(5)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(11)
+                    matrizaux2(5) = suma
+                    TextBox18.text = matrizaux2(5)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+
+
+    End Function
+
+    Function tiro12(TextBox15, TextBox18, matrizaux1, matrizaux2)
+
+        If matrizaux1(12) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(8) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(4) = suma
+                    TextBox15.text = matrizaux2(4)
+                    suma = suma + 20
+                    matrizaux1(13) = 0
+                Else
+                    suma = suma + matrizaux1(12)
+                    i = i + 2
+                    matrizaux1(13) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(12)
+                    i = i + 2
+                    matrizaux2(5) = suma
+                    TextBox18.text = matrizaux2(5)
+                    suma = suma + matrizaux1(12)
+                    matrizaux1(13) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(12)
+                        i = i + 2
+                        matrizaux1(13) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(12) < 10 Then
+            If a = 0 Then
+                If matrizaux1(8) = 10 Then
+                    suma = suma + matrizaux1(12)
+                    i = i + 1
+                    matrizaux2(4) = suma
+                    TextBox15.text = matrizaux2(4)
+                    suma = suma + matrizaux1(10) + matrizaux1(12)
+                Else
+                    suma = suma + matrizaux1(12)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(12)
+                    i = i + 1
+                    matrizaux2(5) = suma
+                    TextBox18.text = matrizaux2(5)
+                    suma = suma + matrizaux1(12)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(12)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro13(TextBox18, TextBox21, matrizaux1, matrizaux2)
+
+
+        If matrizaux1(12) + matrizaux1(13) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(13)
+                matrizaux2(5) = suma
+                TextBox18.text = matrizaux2(5)
+                suma = suma + matrizaux1(12) + matrizaux1(13)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(13)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(13)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(12) + matrizaux1(13) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(13)
+                matrizaux1(5) = suma
+                TextBox18.text = matrizaux1(5)
+                suma = suma + matrizaux1(12) + matrizaux1(13)
+                matrizaux2(6) = suma
+                TextBox21.text = matrizaux2(6)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(13)
+                    matrizaux2(6) = suma
+                    TextBox21.text = matrizaux2(6)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+
+
+    End Function
+
+    Function tiro14(TextBox18, TextBox21, matrizaux1, matrizaux2)
+
+        If matrizaux1(14) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(10) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(5) = suma
+                    TextBox18.text = matrizaux2(5)
+                    suma = suma + 20
+                    matrizaux1(15) = 0
+                Else
+                    suma = suma + matrizaux1(14)
+                    i = i + 2
+                    matrizaux1(15) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(14)
+                    i = i + 2
+                    matrizaux2(6) = suma
+                    TextBox21.text = matrizaux2(6)
+                    suma = suma + matrizaux1(14)
+                    matrizaux1(15) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(14)
+                        i = i + 2
+                        matrizaux1(15) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(14) < 10 Then
+            If a = 0 Then
+                If matrizaux1(10) = 10 Then
+                    suma = suma + matrizaux1(14)
+                    i = i + 1
+                    matrizaux2(5) = suma
+                    TextBox18.text = matrizaux2(5)
+                    suma = suma + matrizaux1(12) + matrizaux1(14)
+                Else
+                    suma = suma + matrizaux1(14)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(14)
+                    i = i + 1
+                    matrizaux2(6) = suma
+                    TextBox21.text = matrizaux2(6)
+                    suma = suma + matrizaux1(14)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(14)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro15(TextBox21, TextBox24, matrizaux1, matrizaux2)
+
+        If matrizaux1(14) + matrizaux1(15) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(15)
+                matrizaux2(6) = suma
+                TextBox21.text = matrizaux2(6)
+                suma = suma + matrizaux1(14) + matrizaux1(15)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(15)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(15)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(14) + matrizaux1(15) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(15)
+                matrizaux2(6) = suma
+                TextBox21.text = matrizaux2(6)
+                suma = suma + matrizaux1(14) + matrizaux1(15)
+                matrizaux2(7) = suma
+                TextBox24.text = matrizaux2(7)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(15)
+                    matrizaux2(7) = suma
+                    TextBox24.text = matrizaux2(7)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+    End Function
+
+    Function tiro16(TextBox21, TextBox24, matrizaux1, matrizaux2)
+
+        If matrizaux1(16) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(12) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(6) = suma
+                    TextBox21.text = matrizaux2(6)
+                    suma = suma + 20
+                    matrizaux1(17) = 0
+                Else
+                    suma = suma + matrizaux1(16)
+                    i = i + 2
+                    matrizaux1(17) = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(16)
+                    i = i + 2
+                    matrizaux1(7) = suma
+                    TextBox24.text = matrizaux1(7)
+                    suma = suma + matrizaux1(16)
+                    matrizaux1(17) = 0
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(16)
+                        i = i + 2
+                        matrizaux1(17) = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(16) < 10 Then
+            If a = 0 Then
+                If matrizaux1(12) = 10 Then
+                    suma = suma + matrizaux1(16)
+                    i = i + 1
+                    matrizaux2(6) = suma
+                    TextBox21.text = matrizaux2(6)
+                    suma = suma + matrizaux1(14) + matrizaux1(16)
+                Else
+                    suma = suma + matrizaux1(16)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(16)
+                    i = i + 1
+                    matrizaux2(7) = suma
+                    TextBox24.text = matrizaux2(7)
+                    suma = suma + matrizaux1(16)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(16)
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro17(TextBox24, TextBox27, matrizaux1, matrizaux2)
+
+        If matrizaux1(16) + matrizaux1(17) = 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(17)
+                matrizaux2(7) = suma
+                TextBox24.text = matrizaux2(7)
+                suma = suma + matrizaux1(16) + matrizaux1(17)
+                i = i + 1
+                a = 1
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(17)
+                    a = 1
+                    i = i + 1
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(17)
+                        a = 1
+                        i = i + 1
+                    End If
+                End If
+            End If
+        End If
+
+        If matrizaux1(16) + matrizaux1(17) < 10 Then
+            If a = 0 Then
+                suma = suma + matrizaux1(17)
+                matrizaux2(7) = suma
+                TextBox24.text = matrizaux2(7)
+                suma = suma + matrizaux1(16) + matrizaux1(17)
+                matrizaux2(8) = suma
+                TextBox27.text = matrizaux2(8)
+                i = i + 1
+                a = 2
+            Else
+
+                If a = 1 Or a = 2 Then
+                    suma = suma + matrizaux1(17)
+                    matrizaux2(8) = suma
+                    TextBox27.text = matrizaux2(8)
+                    i = i + 1
+                    a = 2
+
+                End If
+            End If
+        End If
+
+
+    End Function
+
+    Function tiro18(TextBox24, TextBox27, matrizaux1, matrizaux2)
+
+        If matrizaux1(18) = 10 Then
+
+            If a = 0 Then
+                If matrizaux1(14) = 10 Then
+                    suma = suma + 10
+                    i = i + 2
+                    matrizaux2(7) = suma
+                    TextBox24.text = matrizaux2(7)
+                    x = 0
+                    suma = suma + 20
+
+                Else
+                    suma = suma + matrizaux1(18)
+                    i = i + 2
+                    x = 0
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(18)
+                    i = i + 2
+                    matrizaux2(8) = suma
+                    TextBox27.text = matrizaux2(8)
+                    x = 0
+                    suma = suma + matrizaux1(18)
+
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(18)
+                        i = i + 2
+                        x = 0
+                    End If
+                End If
+            End If
+            a = 0
+        End If
+
+        If matrizaux1(18) < 10 Then
+            If a = 0 Then
+                If matrizaux1(14) = 10 Then
+                    suma = suma + matrizaux1(18)
+                    i = i + 1
+                    matrizaux2(7) = suma
+                    TextBox24.text = matrizaux2(7)
+                    suma = suma + matrizaux1(16) + matrizaux1(18)
+                Else
+                    suma = suma + matrizaux1(18)
+                    i = i + 1
+                End If
+            Else
+                If a = 1 Then
+                    suma = suma + matrizaux1(18)
+                    i = i + 1
+                    matrizaux2(8) = suma
+                    TextBox27.text = matrizaux2(8)
+                    suma = suma + matrizaux1(18)
+                Else
+                    If a = 2 Then
+                        suma = suma + matrizaux1(18)
+                        i = i + 1
+                    End If
+                End If
+            End If
+            x = 1
+        End If
+
+    End Function
+
+    Function tiro19(TextBox25, TextBox27, TextBox31, matrizaux1, matrizaux2)
+
+        If x = 1 Then
+            If matrizaux1(18) + matrizaux1(19) = 10 Then
+                If a = 0 Then
+                    suma = suma + matrizaux1(19)
+                    matrizaux2(8) = suma
+                    TextBox27.text = matrizaux1(8)
+                    suma = suma + matrizaux1(18) + matrizaux1(19)
+                    i = i + 1
+                    a = 1
+                Else
+                    If a = 1 Then
+                        suma = suma + matrizaux1(19)
+                        a = 1
+                        i = i + 1
+                    Else
+                        If a = 2 Then
+                            suma = suma + matrizaux1(19)
+                            a = 1
+                            i = i + 1
+                        End If
+                    End If
+                End If
+            End If
+
+            If matrizaux1(18) + matrizaux1(19) < 10 Then
+                If a = 0 Then
+                    suma = suma + matrizaux1(19)
+                    matrizaux2(8) = suma
+                    TextBox25 = matrizaux2(8)
+                    suma = suma + matrizaux1(18) + matrizaux1(19)
+                    matrizaux2(9) = suma
+                    TextBox31.text = matrizaux2(9)
+                    i = i + 1
+                    a = 2
+                Else
+
+                    If a = 1 Or a = 2 Then
+                        suma = suma + matrizaux1(19)
+                        matrizaux1(9) = suma
+                        TextBox31.text = matrizaux1(9)
+                        i = i + 1
+                        a = 2
+                    End If
+                End If
+            End If
+        End If
+
+
+        If x = 0 Then
+
+            If matrizaux1(19) = 10 Then
+
+                If a = 0 Then
+                    If matrizaux1(16) = 10 Then
+                        suma = suma + 10
+                        i = i + 2
+                        matrizaux2(8) = suma
+                        TextBox27.text = matrizaux2(8)
+                        x = 0
+                        suma = suma + 20
+
+                    Else
+                        suma = suma + matrizaux1(19)
+                        i = i + 2
+                        x = 0
+                    End If
+                Else
+                    If a = 1 Then
+                        suma = suma + matrizaux1(19)
+                        i = i + 2
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        x = 0
+                        suma = suma + matrizaux2(18)
+
+                    Else
+                        If a = 2 Then
+                            suma = suma + matrizaux1(18)
+                            i = i + 2
+                            x = 0
+                        End If
+                    End If
+                End If
+                a = 0
+            End If
+
+
+            If matrizaux1(19) < 10 Then
+                If a = 0 Then
+                    If matrizaux1(16) = 10 Then
+                        suma = suma + matrizaux1(19)
+                        i = i + 1
+                        matrizaux2(8) = suma
+                        TextBox27.text = matrizaux2(8)
+                        suma = suma + matrizaux1(18) + matrizaux1(19)
+                    Else
+                        suma = suma + matrizaux1(19)
+                        i = i + 1
+                    End If
+                Else
+                    If a = 1 Then
+                        suma = suma + matrizaux1(19)
+                        i = i + 1
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        suma = suma + matrizaux1(19)
+                    Else
+                        If a = 2 Then
+                            suma = suma + matrizaux1(19)
+                            i = i + 1
+                        End If
+                    End If
+                End If
+            End If
+        End If
+
+    End Function
+
+    Function tiro20(label3, TextBox31, matrizaux1, matrizaux2)
+
+        If x = 1 Then
+            If matrizaux1(20) = 10 Then
+                If a = 0 Then
+                    suma = suma + matrizaux1(20)
+                    matrizaux2(9) = suma
+                    TextBox31.text = matrizaux2(9)
+                    ' suma = suma + matrizaux1(19) + matrizaux1(20)
+                    i = i + 1
+                    a = 1
+                Else
+                    If a = 1 Then
+                        suma = suma + matrizaux1(20)
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        a = 1
+                        i = i + 1
+                    Else
+                        If a = 2 Then
+                            'suma = suma + matrizaux1(20)
+                            a = 1
+                            i = i + 1
+                        End If
+                    End If
+                End If
+                If matrizaux1(20) < 10 Then
+                    suma = suma + matrizaux1(20)
+                    matrizaux2(9) = suma
+                    TextBox31.text = matrizaux2(9)
+                    i = i + 1
+                    a = 3
+                End If
+
+            End If
+
+            If matrizaux1(20) < 10 Then
+                If a = 0 Then
+                    suma = suma + matrizaux1(20)
+                    matrizaux2(9) = suma
+                    TextBox31.text = matrizaux2(9)
+                    i = i + 1
+                    a = 2
+
+                Else
+
+                    If a = 1 Or a = 2 Then
+                        suma = suma + matrizaux1(20)
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        i = i + 1
+                        a = 2
+
+
+                    End If
+                End If
+            End If
+        End If
+
+
+        If x = 0 Then
+
+            If matrizaux1(20) = 10 Then
+
+                If a = 0 Then
+                    If matrizaux1(18) = 10 Then
+                        suma = suma + 10
+                        i = i + 2
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        x = 0
+                        ' suma = suma + 20
+
+                    Else
+                        ' suma = suma + matrizaux1(20)
+                        i = i + 2
+                        x = 0
+                    End If
+                Else
+                    If a = 1 Then
+                        suma = suma + matrizaux1(20)
+                        i = i + 2
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        x = 0
+                        ' suma = suma + matrizaux1(20)
+
+                    Else
+                        If a = 2 Then
+                            ' suma = suma + matrizaux1(20)
+                            i = i + 2
+                            x = 0
+                        End If
+                    End If
+                End If
+                a = 0
+            End If
+
+            If matrizaux1(20) < 10 Then
+                If a = 0 Then
+                    If matrizaux1(18) = 10 Then
+                        suma = suma + matrizaux1(20)
+                        i = i + 1
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        'suma = suma + matrizaux1(19) + matrizaux1(20)
+                    Else
+                        suma = suma + matrizaux1(20)
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        i = i + 1
+                    End If
+                Else
+                    If a = 1 Then
+                        suma = suma + matrizaux1(20)
+                        i = i + 1
+                        matrizaux2(9) = suma
+                        TextBox31.text = matrizaux2(9)
+                        'suma = suma + matrizaux1(20)
+                    Else
+                        If a = 2 Then
+                            ' suma = suma + matrizaux1(19)
+                            i = i + 1
+                        End If
+                    End If
+                End If
+                x = 1
+            End If
+        End If
+
+        label3.Text = TextBox31.Text
+
+    End Function
+
+
+
+
+
+End Module
